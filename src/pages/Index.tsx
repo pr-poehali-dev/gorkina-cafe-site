@@ -87,10 +87,10 @@ const Index = () => {
         <div 
           className="absolute inset-0 bg-cover bg-center"
           style={{
-            backgroundImage: `url('https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/23fa0d17-736a-41a3-81cb-b592718e3124.jpg')`,
+            backgroundImage: `url('https://cdn.poehali.dev/files/354b304c-ff7a-4d70-bf50-95ae616ed5b7.jpg')`,
           }}
         >
-          <div className="absolute inset-0 bg-black/40"></div>
+          <div className="absolute inset-0 bg-black/30"></div>
         </div>
         <div className="relative z-10 text-center text-white px-4">
           <h2 className="text-5xl md:text-7xl font-bold mb-4 animate-fade-in">Добро пожаловать</h2>
@@ -137,19 +137,19 @@ const Index = () => {
               <CardContent className="space-y-3">
                 <div className="flex justify-between">
                   <span>Капучино</span>
-                  <span className="font-semibold">280₽</span>
+                  <span className="font-semibold">8 BYN</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Латте</span>
-                  <span className="font-semibold">300₽</span>
+                  <span className="font-semibold">9 BYN</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Эспрессо</span>
-                  <span className="font-semibold">200₽</span>
+                  <span className="font-semibold">6 BYN</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Чай (ассорти)</span>
-                  <span className="font-semibold">250₽</span>
+                  <span className="font-semibold">7 BYN</span>
                 </div>
               </CardContent>
             </Card>
@@ -164,19 +164,19 @@ const Index = () => {
               <CardContent className="space-y-3">
                 <div className="flex justify-between">
                   <span>Круассан</span>
-                  <span className="font-semibold">180₽</span>
+                  <span className="font-semibold">5 BYN</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Яблочный штрудель</span>
-                  <span className="font-semibold">220₽</span>
+                  <span className="font-semibold">7 BYN</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Чизкейк</span>
-                  <span className="font-semibold">320₽</span>
+                  <span className="font-semibold">10 BYN</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Эклер</span>
-                  <span className="font-semibold">200₽</span>
+                  <span className="font-semibold">6 BYN</span>
                 </div>
               </CardContent>
             </Card>
@@ -191,19 +191,19 @@ const Index = () => {
               <CardContent className="space-y-3">
                 <div className="flex justify-between">
                   <span>Омлет с травами</span>
-                  <span className="font-semibold">350₽</span>
+                  <span className="font-semibold">11 BYN</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Сырники</span>
-                  <span className="font-semibold">320₽</span>
+                  <span className="font-semibold">10 BYN</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Каша овсяная</span>
-                  <span className="font-semibold">250₽</span>
+                  <span className="font-semibold">8 BYN</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Тосты с авокадо</span>
-                  <span className="font-semibold">380₽</span>
+                  <span className="font-semibold">12 BYN</span>
                 </div>
               </CardContent>
             </Card>
