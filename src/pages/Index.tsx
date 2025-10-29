@@ -61,7 +61,7 @@ const Index = () => {
       if (response.ok) {
         toast({
           title: "Бронирование успешно!",
-          description: `Стол на ${guests} персон забронирован на ${format(date, 'd MMMM', { locale: ru })} в ${time}`,
+          description: `Стол на ${guests} персон забронирован на ${format(date, 'd MMMM', { locale: ru })} в ${time}. SMS-уведомление будет отправлено на ${phone}`,
         });
         setDate(undefined);
         setTime('');
