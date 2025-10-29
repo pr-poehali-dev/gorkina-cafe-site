@@ -21,9 +21,9 @@ const Index = () => {
   const { toast } = useToast();
 
   const menuItems = [
-    { name: 'Капучино', image: 'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/bbfc8b04-dc2e-4c11-82b0-a79394e1f1e0.jpg', description: 'Ароматный кофе с нежной молочной пенкой' },
-    { name: 'Круассан', image: 'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/07ce7968-b310-4faa-be37-3dc7477722fa.jpg', description: 'Свежая французская выпечка с хрустящей корочкой' },
-    { name: 'Омлет с травами', image: 'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/ea360c82-c31a-4871-ae64-adfe89d769c0.jpg', description: 'Воздушный омлет со свежей зеленью' },
+    { name: 'Говядина Веллингтон', image: 'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/4dbc4bb8-36ea-4af4-a4a8-c62e53c8fd5e.jpg', description: 'Нежная говяжья вырезка в слоёном тесте с грибным дюксель' },
+    { name: 'Паста с морепродуктами', image: 'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/7c3352a1-40c2-4371-a1af-b6df74c37145.jpg', description: 'Лингвини с лобстером в сливочном соусе с пармезаном' },
+    { name: 'Шоколадный фондан', image: 'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/d460bc77-e307-4443-bf1e-64f28e869a71.jpg', description: 'Тёплый десерт с жидкой шоколадной начинкой и мороженым' },
   ];
 
   const galleryImages = [
