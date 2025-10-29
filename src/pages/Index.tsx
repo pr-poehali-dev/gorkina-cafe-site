@@ -6,6 +6,7 @@ import { Label } from '@/components/ui/label';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
+import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
 import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
 import { format } from 'date-fns';
@@ -18,6 +19,17 @@ const Index = () => {
   const [name, setName] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
   const { toast } = useToast();
+
+  const menuItems = [
+    { name: 'Капучино', image: 'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/bbfc8b04-dc2e-4c11-82b0-a79394e1f1e0.jpg', description: 'Ароматный кофе с нежной молочной пенкой' },
+    { name: 'Круассан', image: 'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/07ce7968-b310-4faa-be37-3dc7477722fa.jpg', description: 'Свежая французская выпечка с хрустящей корочкой' },
+    { name: 'Омлет с травами', image: 'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/ea360c82-c31a-4871-ae64-adfe89d769c0.jpg', description: 'Воздушный омлет со свежей зеленью' },
+  ];
+
+  const galleryImages = [
+    'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/32565a64-a153-476d-935d-cbaebb6dcb5c.jpg',
+    'https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/41c24c63-2f80-4f64-9cef-20850c82d5a3.jpg',
+  ];
 
   const handleBooking = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -209,12 +221,43 @@ const Index = () => {
             </Card>
           </div>
 
-          <div className="mt-12 text-center">
-            <img 
-              src="https://cdn.poehali.dev/projects/cdf2533d-2e56-4e2c-b23a-7c53ff045c7c/files/41c24c63-2f80-4f64-9cef-20850c82d5a3.jpg" 
-              alt="Кафе Горькина - фирменные блюда" 
-              className="rounded-lg shadow-2xl max-w-3xl mx-auto"
-            />
+          <div className="mt-16">
+            <h3 className="text-3xl font-bold text-center mb-8">Фирменные блюда</h3>
+            <div className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {menuItems.map((item) => (
+                <Dialog key={item.name}>
+                  <DialogTrigger asChild>
+                    <div className="cursor-pointer group">
+                      <div className="relative overflow-hidden rounded-lg shadow-lg transition-transform group-hover:scale-105">
+                        <img 
+                          src={item.image}
+                          alt={item.name}
+                          className="w-full h-64 object-cover"
+                        />
+                        <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-end">
+                          <div className="p-4 text-white">
+                            <h4 className="text-xl font-bold">{item.name}</h4>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-3xl">
+                    <div className="space-y-4">
+                      <img 
+                        src={item.image}
+                        alt={item.name}
+                        className="w-full rounded-lg"
+                      />
+                      <div>
+                        <h3 className="text-2xl font-bold mb-2">{item.name}</h3>
+                        <p className="text-muted-foreground">{item.description}</p>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -324,6 +367,38 @@ const Index = () => {
                 </form>
               </CardContent>
             </Card>
+          </div>
+        </div>
+      </section>
+
+      <section className="py-20 bg-card">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Наш интерьер</h2>
+          
+          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+            {galleryImages.map((image, index) => (
+              <Dialog key={index}>
+                <DialogTrigger asChild>
+                  <div className="cursor-pointer group relative overflow-hidden rounded-lg shadow-lg">
+                    <img 
+                      src={image}
+                      alt={`Интерьер кафе ${index + 1}`}
+                      className="w-full h-80 object-cover transition-transform group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors flex items-center justify-center">
+                      <Icon name="ZoomIn" className="text-white opacity-0 group-hover:opacity-100 transition-opacity" size={48} />
+                    </div>
+                  </div>
+                </DialogTrigger>
+                <DialogContent className="max-w-4xl">
+                  <img 
+                    src={image}
+                    alt={`Интерьер кафе ${index + 1}`}
+                    className="w-full rounded-lg"
+                  />
+                </DialogContent>
+              </Dialog>
+            ))}
           </div>
         </div>
       </section>
