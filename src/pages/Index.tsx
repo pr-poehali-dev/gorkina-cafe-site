@@ -7,6 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Calendar } from '@/components/ui/calendar';
 import { Popover, PopoverContent, PopoverTrigger } from '@/components/ui/popover';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger, DropdownMenuSeparator } from '@/components/ui/dropdown-menu';
 import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
 import { format } from 'date-fns';
@@ -85,12 +86,48 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Горькина</h1>
-            <nav className="hidden md:flex gap-8">
-              <a href="#menu" className="hover:text-accent transition-colors">Меню</a>
-              <a href="#about" className="hover:text-accent transition-colors">О нас</a>
-              <a href="#booking" className="hover:text-accent transition-colors">Бронирование</a>
-              <a href="#contacts" className="hover:text-accent transition-colors">Контакты</a>
-            </nav>
+            <div className="flex items-center gap-4">
+              <nav className="hidden md:flex gap-8">
+                <a href="#menu" className="hover:text-accent transition-colors">Меню</a>
+                <a href="#about" className="hover:text-accent transition-colors">О нас</a>
+                <a href="#booking" className="hover:text-accent transition-colors">Бронирование</a>
+                <a href="#contacts" className="hover:text-accent transition-colors">Контакты</a>
+              </nav>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-primary-foreground hover:bg-primary/90">
+                    <Icon name="Menu" size={24} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}>
+                    <Icon name="Info" className="mr-2" size={16} />
+                    О нас
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' })}>
+                    <Icon name="UtensilsCrossed" className="mr-2" size={16} />
+                    Меню
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => document.getElementById('booking')?.scrollIntoView({ behavior: 'smooth' })}>
+                    <Icon name="CalendarCheck" className="mr-2" size={16} />
+                    Бронирование
+                  </DropdownMenuItem>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem onClick={() => document.getElementById('directions')?.scrollIntoView({ behavior: 'smooth' })}>
+                    <Icon name="MapPin" className="mr-2" size={16} />
+                    Как добраться
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => document.getElementById('feedback')?.scrollIntoView({ behavior: 'smooth' })}>
+                    <Icon name="MessageSquare" className="mr-2" size={16} />
+                    Обратная связь
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => document.getElementById('contacts')?.scrollIntoView({ behavior: 'smooth' })}>
+                    <Icon name="Phone" className="mr-2" size={16} />
+                    Контакты
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         </div>
       </header>
@@ -403,7 +440,86 @@ const Index = () => {
         </div>
       </section>
 
-      <section id="contacts" className="py-20 bg-background">
+      <section id="directions" className="py-20 bg-card">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Как добраться</h2>
+          <div className="max-w-4xl mx-auto">
+            <Card>
+              <CardContent className="p-8">
+                <div className="space-y-6">
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Icon name="Car" className="text-primary" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">На автомобиле</h3>
+                      <p className="text-muted-foreground">Парковка доступна рядом с кафе. Адрес для навигатора: г. Москва, ул. Пушкинская, д. 15</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Icon name="Bus" className="text-primary" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">На общественном транспорте</h3>
+                      <p className="text-muted-foreground">Ближайшая станция метро: Пушкинская (5 минут пешком). Автобусы: №10, 25, 47 - остановка "Центральная площадь"</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-4">
+                    <div className="bg-primary/10 p-3 rounded-lg">
+                      <Icon name="Clock" className="text-primary" size={24} />
+                    </div>
+                    <div>
+                      <h3 className="text-xl font-semibold mb-2">Режим работы</h3>
+                      <p className="text-muted-foreground">Ежедневно с 10:00 до 22:00. Бронирование столиков по телефону или через сайт</p>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="feedback" className="py-20 bg-background">
+        <div className="container mx-auto px-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Обратная связь</h2>
+          <div className="max-w-2xl mx-auto">
+            <Card>
+              <CardHeader>
+                <CardTitle>Напишите нам</CardTitle>
+                <CardDescription>Мы ценим ваше мнение и ответим в течение 24 часов</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <form className="space-y-4">
+                  <div className="space-y-2">
+                    <Label htmlFor="feedback-name">Ваше имя</Label>
+                    <Input id="feedback-name" placeholder="Иван Иванов" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="feedback-email">Email</Label>
+                    <Input id="feedback-email" type="email" placeholder="example@mail.com" />
+                  </div>
+                  <div className="space-y-2">
+                    <Label htmlFor="feedback-message">Сообщение</Label>
+                    <textarea 
+                      id="feedback-message"
+                      className="flex min-h-[120px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                      placeholder="Ваш отзыв или предложение..."
+                    />
+                  </div>
+                  <Button type="submit" className="w-full">
+                    <Icon name="Send" className="mr-2" size={16} />
+                    Отправить сообщение
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+      </section>
+
+      <section id="contacts" className="py-20 bg-card">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-12">Контакты</h2>
           
